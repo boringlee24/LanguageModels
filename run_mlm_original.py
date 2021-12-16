@@ -48,7 +48,15 @@ from transformers import (
 from transformers.trainer_utils import get_last_checkpoint
 from transformers.utils import check_min_version
 from transformers.utils.versions import require_version
+import torch
 
+########## new TODO ##########
+
+#os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
+#os.environ["CUDA_VISIBLE_DEVICES"]="0,1"
+#torch.multiprocessing.set_start_method('spawn')
+
+################
 
 # Will error if the minimal version of Transformers is not installed. Remove at your own risks.
 # check_min_version("4.10.0.dev0")
@@ -68,7 +76,7 @@ if os.getenv('OMPI_COMM_WORLD_SIZE') is not None:
 else:
     world_size = 1
     global_rank = 0
-    local_rank = 0
+    local_rank = -1 #TODO: was 1
 
 # set environment variables for torch.distributed
 os.environ['RANK'] = str(global_rank)
