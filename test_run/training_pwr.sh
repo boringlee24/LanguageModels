@@ -1,10 +1,10 @@
 #!/bin/bash
 echo "run nvidia-smi command to monitor gpu power"
 
-RUN_TIME=1800 #1800
+RUN_TIME=1200 #1800
 TESTCASE="bert"
 GPU=$1 # v100
-DATA_PATH="/scratch/$(whoami)/bert-mlm/test_dir/"
+DATA_PATH="/home/$(whoami)/bert-mlm/test_dir/"
 
 mkdir -p ${DATA_PATH}
 
